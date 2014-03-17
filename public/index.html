@@ -61,25 +61,28 @@
         <div class="panel-heading">A quoi j'ai joué aujourd'hui</div>
         <div class="panel-body">
           <div class="played">
-            <div class="row form-group">
-              <div class="col-md-3">
-                {{view Ember.Select viewName="gameSelect"
-                        contentBinding="controllers.games.content"
-                        optionLabelPath="content.name"
-                        optionValuePath="content.id"
-                        selectionBinding="selectedGame"
-                        prompt="Choisir un jeu"
-                        class="form-control"}}
+            {{#each newParties}}
+              <div class="row form-group">
+                <div class="col-md-3">
+                  {{view Ember.Select viewName="gameSelect"
+                          controller="games"
+                          contentBinding="content"
+                          optionLabelPath="content.name"
+                          optionValuePath="content.id"
+                          selectionBinding=game
+                          prompt="Choisir un jeu"
+                          class="form-control"}}
+                </div>
+                <div class="col-md-1">
+                  {{input type="text" value=nbPlayer class="form-control"}}
+                </div>
+                <div class="col-md-1">
+                  <button class="btn btn-small btn-primary" {{action 'add'}}>
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
               </div>
-              <div class="col-md-1">
-                {{input type="text" value=nbPlayer class="form-control"}}
-              </div>
-              <div class="col-md-1">
-                <span class="btn btn-default btn-mini">
-                  <i class="fa fa-plus"></i>
-                </span>
-              </div>
-            </div>
+            {{/each}}
           </div>
           <button class="btn btn-small btn-primary" {{action 'save'}}>
             Enregistrer
