@@ -48,6 +48,14 @@
       </div><!-- /.container -->
     </script>
 
+    <script type="text/x-handlebars" data-template-name="playedGames/index">
+      <ul>
+        {{#each}}
+        <li>{{game.name}} a {{nbPlayer}}</li>
+        {{/each}}
+      </ul>
+    </script>
+
     <script type="text/x-handlebars" data-template-name="playedGames/play">
       <div class="panel panel-default">
         <div class="panel-heading">A quoi j'ai joué aujourd'hui</div>
@@ -89,6 +97,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/momentjs/min/moment-with-langs.min.js"></script>
     <script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="components/handlebars/handlebars.js"></script>
     <script src="components/ember/ember.js"></script>
@@ -100,6 +109,7 @@
     <script src="js/models/party.js"></script>
     <script src="js/controller/played_games_play_controller.js"></script>
     <script src="js/controller/games_controller.js"></script>
+    <script src="js/helpers/helpers.js"></script>
   </body>
 </html>
 

@@ -4,6 +4,12 @@ Ludoplay.Router.map(function() {
   });
 });
 
+Ludoplay.PlayedGamesIndexRoute = Ember.Route.extend({
+  model: function(){
+    return this.store.find('party');
+  }
+})
+
 Ludoplay.PlayedGamesPlayRoute = Ember.Route.extend({
   setupController: function(controller, model) {
     this._super(controller, model);
