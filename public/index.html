@@ -77,7 +77,7 @@
                   {{input type="text" value=nbPlayer class="form-control"}}
                 </div>
                 <div class="col-md-1">
-                  <button class="btn btn-small btn-primary" {{action 'add'}}>
+                  <button class="btn btn-small btn-default" {{action 'add'}}>
                     <i class="fa fa-plus"></i>
                   </button>
                 </div>
@@ -87,9 +87,9 @@
           <button class="btn btn-small btn-primary" {{action 'save'}}>
             Enregistrer
           </button>
-          {{#link-to 'playedGames' class="btn btn-link"}}
+          <button class="btn btn-default" {{action 'cancel'}}>
             Annuler
-          {{/link-to}}
+          </button>
         </div>
       </div>
     </script>

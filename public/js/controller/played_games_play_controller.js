@@ -7,6 +7,10 @@ Ludoplay.PlayedGamesPlayController = Ember.ArrayController.extend({
     add: function(){
       this.newParties.addObject(this.store.createRecord('party', {}));
     },
+    cancel: function(){
+      this.newParties.invoke('deleteRecord');
+      this.transitionToRoute("/")
+    },
     save: function(){
       var party = this.store.createRecord('party', {
         game: this.selectedGame,
