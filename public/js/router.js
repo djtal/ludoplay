@@ -13,7 +13,7 @@ Ludoplay.PlayedGamesIndexRoute = Ember.Route.extend({
 Ludoplay.PlayedGamesPlayRoute = Ember.Route.extend({
   setupController: function(controller, model) {
     this._super(controller, model);
-    controller.set('newParties', [ this.store.createRecord('party', {})]);
+    controller.set('newParties', [ {game: '', nbPlayer: ''}]);
     this.controllerFor('games').set('content', this.store.find('game'));
   }
 });
