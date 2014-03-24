@@ -49,11 +49,23 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="playedGames/index">
-      <ul>
-        {{#each}}
-        <li>{{game.name}} a {{nbPlayer}}</li>
-        {{/each}}
-      </ul>
+      <div class="row-fluid">
+        <div class="panel col-md-4">
+          Vous avez joué {{games_count}} jeux
+        </div>
+        <div class="panel col-md-4">
+        </div>
+        <div class="panel col-md-4">
+        </div>
+
+      </div>
+      <div class="row-fluid">
+        <ul>
+          {{#each}}
+          <li>{{game.name}} a {{nbPlayer}}</li>
+          {{/each}}
+        </ul>
+      </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="playedGames/play">
@@ -94,8 +106,6 @@
         </div>
       </div>
     </script>
-    <script type="text/x-handlebars" data-template-name="new-play-game">
-    </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -112,6 +122,7 @@
     <script src="js/models/game.js"></script>
     <script src="js/models/party.js"></script>
     <script src="js/controller/played_games_play_controller.js"></script>
+    <script src="js/controller/played_games_index_controller.js"></script>
     <script src="js/controller/games_controller.js"></script>
     <script src="js/helpers/helpers.js"></script>
   </body>
