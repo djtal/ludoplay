@@ -34,5 +34,23 @@ Ludoplay.Party.FIXTURES = [
    game: 2,
    nbPlayer: 1,
    played_at: moment("01-03-2014", "DD-MM-YYYY")
- }
+ },
+ {
+   id: 6,
+   game: 2,
+   nbPlayer: 4,
+   played_at: moment("14-03-2014", "DD-MM-YYYY")
+ },
+ {
+   id: 7,
+   game: 2,
+   nbPlayer: 4,
+   played_at: moment("14-03-2014", "DD-MM-YYYY")
+ },
+ {
+   id: 8,
+   game: 2,
+   nbPlayer: 4,
+   played_at: moment("15-03-2014", "DD-MM-YYYY")
+ },
 ];
