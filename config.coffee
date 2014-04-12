@@ -20,6 +20,11 @@ exports.config =
           'bower_components/ember-data/ember-data.js'
           'app/scripts/applications.js'
         ]
+    templates:
+      precompile: true  # default is false
+      root: 'templates/'  # default is null
+      defaultExtension: 'hbs'
+      joinTo: 'js/app.js' : /^app/
     stylesheets:
       joinTo:
         'css/app.css': /^(app|vendor|bower_components)/

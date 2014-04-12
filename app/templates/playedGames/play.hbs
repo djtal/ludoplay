@@ -1,0 +1,36 @@
+<div class="panel panel-default">
+  <div class="panel-heading">A quoi j'ai joué aujourd'hui</div>
+  <div class="panel-body">
+    <div class="played">
+      {{#with controllers.games as games}}
+        {{#each party in newParties}}
+          <div class="row form-group">
+            <div class="col-md-3">
+              {{view Ember.Select viewName="gameSelect"
+                      contentBinding="games.content"
+                      optionLabelPath="content.name"
+                      optionValuePath="content.id"
+                      selectionBinding="party.game"
+                      prompt="Choisir un jeu"
+                      class="form-control"}}
+            </div>
+            <div class="col-md-1">
+              {{input type="text" value=party.nbPlayer class="form-control"}}
+            </div>
+            <div class="col-md-1">
+              <button class="btn btn-small btn-default" {{action 'add'}}>
+                <i class="fa fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        {{/each}}
+      {{/with}}
+    </div>
+    <button class="btn btn-small btn-primary" {{action 'save'}}>
+      Enregistrer
+    </button>
+    <button class="btn btn-default" {{action 'cancel'}}>
+      Annuler
+    </button>
+  </div>
+</div>

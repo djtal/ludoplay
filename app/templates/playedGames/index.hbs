@@ -1,0 +1,32 @@
+<div class="row-fluid">
+  <div class="panel col-md-4">
+    Vous avez joué {{games_count}} jeux
+  </div>
+  <div class="panel col-md-4">
+  </div>
+  <div class="panel col-md-4">
+  </div>
+
+</div>
+<div class="row-fluid">
+  <ul>
+    {{#each day in days}}
+    <li>
+    {{ formatDateWith day "dd D" }} : {{day.parties.length}} partie
+    <ul>
+      {{#each p in day.parties }}
+        <li>{{p.game.name}}</li>
+        {{log g}}
+      {{/each}}
+    </ul>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+<div class="row-fluid">
+  <ul>
+    {{#each}}
+    <li>{{game.name}} a {{nbPlayer}}</li>
+    {{/each}}
+  </ul>
+</div>
