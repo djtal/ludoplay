@@ -1,4 +1,4 @@
-Ludoplay.PlayedGamesPlayController = Ember.ArrayController.extend
+Ludoplay.PartiesPlayController = Ember.ArrayController.extend
   needs: ['games'],
   selectedGame: null,
   nbPlayer: null,

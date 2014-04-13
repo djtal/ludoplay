@@ -1,12 +1,16 @@
 Ludoplay.Router.map ->
-  @resource 'playedGames', path: '/' , ->
+  @resource 'parties', path: '/' , ->
     @route 'play'
 
-Ludoplay.PlayedGamesIndexRoute = Ember.Route.extend
+Ludoplay.PartiesIndexRoute = Ember.Route.extend
   model: ->
     @store.find 'party'
+  setupController: (controller, model) ->
+    @_super controller, model
+    controller.set('refDate', moment())
 
-Ludoplay.PlayedGamesPlayRoute = Ember.Route.extend
+
+Ludoplay.PartiesPlayRoute = Ember.Route.extend
   setupController: (controller, model) ->
     @_super controller, model
     controller.set 'newParties', [ {game: '', nbPlayer: ''} ]
