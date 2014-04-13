@@ -17,11 +17,16 @@
         {{#each day in week}}
           <td>
             {{ formatDateWith day "dd D" }} : {{day.parties.length}} partie
-            <ul>
+            <ul class="list-unstyled">
               {{#each p in day.parties }}
                 <li>{{p.game.name}}</li>
                 {{log g}}
               {{/each}}
+              <li>
+                  {{#link-to 'parties.play' day.date.d day.date.m day.date.y class="btn btn-info btn-small"}}
+                    <i class="fa fa-plus"></i>
+                  {{/link-to}}
+              </li>
             </ul>
           </td>
         {{/each}}

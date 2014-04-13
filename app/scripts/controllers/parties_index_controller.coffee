@@ -10,24 +10,20 @@ Ludoplay.PartiesIndexController = Ember.ArrayController.extend
     @content.get("length")
   ).property('content.@each')
 
-  days: (->
+  weeks: (->
     plays = []
     for i in [1..31]
-      d = moment [2014, 2, i]
+      d = moment [2014, @get('refDate').month(), i]
       set = @content.filter (party) ->
-        if party.get("played_at").isSame(d)
+        if moment(party.get("playedAt")).isSame(d)
           true
-      plays.push day: d, parties: set
-    plays
-  ).property('content.@each')
-
-  weeks: (->
+      plays.push day: d, parties: set, date: { d: d.format('D'), m: d.format('M'),  y: d.format('YYYY')  }
     weeks= []
-    l = @get('days').length
+    l = plays.length
     i = 0
     taken = 0
     while i <  l
-      weeks.push @get('days').slice(i, if i + 7 < l then i + 7 else l)
+      weeks.push plays.slice(i, if i + 7 < l then i + 7 else l)
       i += 7
     weeks
   ).property('content.@each')
