@@ -1,3 +1,4 @@
+<div class="col-md-12">
 <h2>
   Les partie du mois de {{month}}
   <small>
@@ -7,35 +8,34 @@
   {{/with}}
   </small>
 </h2>
-<div class="container-fluid">
-  <div class="col-md-9">
-    <table class="table table-bordered">
-      <tbody>
-      {{#each week in weeks}}
-        <tr>
-          {{#each day in week}}
-            <td>
-              {{ formatDateWith day "dd D" }} : {{day.parties.length}} partie
-              <ul>
-                {{#each p in day.parties }}
-                  <li>{{p.game.name}}</li>
-                  {{log g}}
-                {{/each}}
-              </ul>
-            </td>
-          {{/each}}
-        </tr>
+</div>
+<div class="col-md-9">
+  <table class="table table-bordered">
+    <tbody>
+    {{#each week in weeks}}
+      <tr>
+        {{#each day in week}}
+          <td>
+            {{ formatDateWith day "dd D" }} : {{day.parties.length}} partie
+            <ul>
+              {{#each p in day.parties }}
+                <li>{{p.game.name}}</li>
+                {{log g}}
+              {{/each}}
+            </ul>
+          </td>
         {{/each}}
-      </tbody>
-    </table>
-  </div>
-  <div class="col-md-3">
-    {{#with controllers.playedGames as games}}
-    <ul>
-      {{#each game in games.played}}
-        <li>{{game.name}}</li>
+      </tr>
       {{/each}}
-    </ul>
-    {{/with}}
-  </div>
+    </tbody>
+  </table>
+</div>
+<div class="col-md-3">
+  {{#with controllers.playedGames as games}}
+  <ul>
+    {{#each game in games.played}}
+      <li>{{game.name}}</li>
+    {{/each}}
+  </ul>
+  {{/with}}
 </div>
