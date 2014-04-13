@@ -1,9 +1,14 @@
+<h2>
+  Les partie du mois de {{month}}
+  <small>
+  ( {{ parties_count }} parties /
+  {{#with controllers.playedGames as games}}
+    {{ games.games_count}} jeux )
+  {{/with}}
+  </small>
+</h2>
 <div class="container-fluid">
-  <div class="panel col-md-12">
-    Vous avez joué {{games_count}} jeux
-  </div>
   <div class="col-md-9">
-    Les partie du mois de {{month}}
     <table class="table table-bordered">
       <tbody>
       {{#each week in weeks}}
@@ -25,10 +30,12 @@
     </table>
   </div>
   <div class="col-md-3">
+    {{#with controllers.playedGames as games}}
     <ul>
-      {{#each}}
-        <li>{{game.name}} a {{nbPlayer}}</li>
+      {{#each game in games.played}}
+        <li>{{game.name}}</li>
       {{/each}}
     </ul>
+    {{/with}}
   </div>
 </div>

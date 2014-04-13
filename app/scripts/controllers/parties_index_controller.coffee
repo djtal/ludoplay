@@ -1,23 +1,20 @@
 Ludoplay.PartiesIndexController = Ember.ArrayController.extend
+  needs: ['playedGames'],
   refDate: null,
 
   month: (->
     this.get('refDate').format('MMMM')
   ).property('refDate')
 
-  games_count: (->
-    @content.mapBy('game').uniq().length
-  ).property('content.@each')
-
-  games: (->
-    @content.mapBy('game').uniq()
+  parties_count: (->
+    @content.get("length")
   ).property('content.@each')
 
   days: (->
     plays = []
     for i in [1..31]
       d = moment [2014, 2, i]
-      set = this.content.filter (party) ->
+      set = @content.filter (party) ->
         if party.get("played_at").isSame(d)
           true
       plays.push day: d, parties: set
