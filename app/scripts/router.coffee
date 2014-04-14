@@ -1,14 +1,21 @@
 Ludoplay.Router.map ->
-  @resource 'parties', path: '/' , ->
+  @resource 'parties', path: '/parties/:m/:y', ->
     @route 'play', path: 'parties/play/:d/:m/:y'
 
+
+Ludoplay.IndexRoute = Ember.Route.extend
+  beforeModel:  ->
+    now = moment()
+    this.transitionTo('parties.index', {m: now.month(), y: now.year()})
+
 Ludoplay.PartiesIndexRoute = Ember.Route.extend
-  model: ->
+  model: (params) ->
+    refDate = moment([params.y, params.m , 1])
     @store.find 'party'
   setupController: (controller, model) ->
     @_super controller, model
     controller.set('refDate', moment())
-    @controllerFor('playedGames').set 'content', @store.find('party')
+    @controllerFor('playedGames').set 'content', model
 
 
 Ludoplay.PartiesPlayRoute = Ember.Route.extend

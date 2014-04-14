@@ -2,6 +2,10 @@ Ludoplay.PartiesIndexController = Ember.ArrayController.extend
   needs: ['playedGames'],
   refDate: null,
 
+  weekDays: (->
+    moment.weekdays()
+  ).property()
+
   month: (->
     this.get('refDate').format('MMMM')
   ).property('refDate')
@@ -10,10 +14,20 @@ Ludoplay.PartiesIndexController = Ember.ArrayController.extend
     @content.get("length")
   ).property('content.@each')
 
+  prevMonth: (->
+    date = moment(@get('refDate')).subtract('months', 1)
+    { month: date.month(), year: date.year() }
+  ).property('refDate')
+
+  nextMonth: (->
+    date = moment(@get('refDate')).add('months', 1)
+    { month: date.month(), year: date.year() }
+  ).property('refDate')
+
   weeks: (->
     plays = []
     for i in [1..31]
-      d = moment [2014, @get('refDate').month(), i]
+      d = moment [@get('refDate').year(), @get('refDate').month(), i]
       set = @content.filter (party) ->
         if moment(party.get("playedAt")).isSame(d)
           true

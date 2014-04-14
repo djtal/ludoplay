@@ -11,6 +11,26 @@
 </div>
 <div class="col-md-9">
   <table class="table table-bordered">
+    <thead>
+      <tr>
+          <td colspan="2">
+            {{#link-to 'parties' prevMonth.month prevMonth.year}}
+              Précedent
+            {{/link-to}}
+          </td>
+          <td colspan="3"></td>
+          <td colspan="2">
+            {{#link-to 'parties' nextMonth.month nextMonth.year}}
+              Suivant
+            {{/link-to}}
+        </td>
+      </tr>
+      <tr>
+        {{#each day in weekDays}}
+          <td>{{day}}</td>
+        {{/each}}
+      </tr>
+    </thead>
     <tbody>
     {{#each week in weeks}}
       <tr>
