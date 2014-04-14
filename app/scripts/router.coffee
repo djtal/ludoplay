@@ -6,7 +6,7 @@ Ludoplay.Router.map ->
 Ludoplay.IndexRoute = Ember.Route.extend
   beforeModel:  ->
     now = moment()
-    this.transitionTo('parties.index', {m: now.month(), y: now.year()})
+    @transitionTo('parties.index', {m: now.month(), y: now.year()})
 
 Ludoplay.PartiesIndexRoute = Ember.Route.extend
   model: (params) ->
@@ -19,6 +19,9 @@ Ludoplay.PartiesIndexRoute = Ember.Route.extend
 
 
 Ludoplay.PartiesPlayRoute = Ember.Route.extend
+  renderTemplate: ->
+    @render outlet: 'modal'
+
   setupController: (controller, model) ->
     @_super controller, model
     playedAt = moment([@context.y, @context.m - 1, @context.d])
