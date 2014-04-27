@@ -1,0 +1,31 @@
+<h1 class="page-header">
+  Mes jeux
+</h1>
+<div class="pull-right">
+  Trier par :&nbsp;
+  {{view Ember.Select
+    contentBinding="sortOptions"
+    value=selectedSort
+    optionValuePath="content.value"
+    optionLabelPath="content.label"}}
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td>Nom</td>
+      <td>Public</td>
+      <td>Temps de jeux</td>
+      <td>Date Achat</td>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each game in arrangedContent}}
+    <tr>
+      <td>{{game.game.name}}</td>
+      <td>{{game.game.public_name}}</td>
+      <td>{{game.game.playTime}}</td>
+      <td>{{formatDate game.acquiredAt }}</td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>

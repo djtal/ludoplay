@@ -1,6 +1,7 @@
 Ludoplay.Router.map ->
   @resource 'parties', path: '/parties/:m/:y', ->
     @route 'play', path: 'parties/play/:d/:m/:y'
+  @resource 'ownedGames', path: '/mes-jeux'
 
 
 Ludoplay.IndexRoute = Ember.Route.extend
@@ -29,4 +30,6 @@ Ludoplay.PartiesPlayRoute = Ember.Route.extend
     controller.set 'newParties', [ {game: '', nbPlayer: '', playedAt: playedAt} ]
     @controllerFor('games').set 'content', @store.find('game')
 
-
+Ludoplay.OwnedGamesRoute = Ember.Route.extend
+  model: ->
+    @store.find('owned-game')
