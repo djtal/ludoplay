@@ -18,6 +18,7 @@ exports.config =
           'bower_components/handlebars/handlebars.js'
           'bower_components/ember/ember.js'
           'bower_components/ember-data/ember-data.js'
+          'bower_components/d3/d3.js'
           'app/scripts/applications.js'
         ]
     templates:

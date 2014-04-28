@@ -1,0 +1,10 @@
+<ul class="nav nav-sidebar">
+  <li><a href="#">Vue d'ensemble</a></li>
+  {{#linkTo "parties.index" tagName="li"}}
+    <a {{bindAttr href="view.href"}}>Mes Parties</a>
+  {{/linkTo}}
+  {{#linkTo "ownedGames" tagName="li"}}
+    <a {{bindAttr href="view.href"}}>Mes Jeux</a>
+  {{/linkTo}}
+  <li><a href="#">Export</a></li>
+</ul>

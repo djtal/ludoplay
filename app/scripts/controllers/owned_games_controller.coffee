@@ -1,4 +1,5 @@
 Ludoplay.OwnedGamesController = Ember.ArrayController.extend
+  needs: ['gamesStats'],
   # The options that appear in the select box
   sortOptions: [
     { label: "Nom (asc)", value: "game.name:asc" },

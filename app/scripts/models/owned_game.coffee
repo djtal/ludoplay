@@ -1,5 +1,5 @@
 Ludoplay.OwnedGame = DS.Model.extend
-  game: DS.belongsTo 'game'
+  game: DS.belongsTo 'game', embedded: 'load'
   acquiredAt: DS.attr 'date'
 
 Ludoplay.OwnedGame.FIXTURES = [
