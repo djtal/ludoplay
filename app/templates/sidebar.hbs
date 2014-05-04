@@ -1,10 +1,15 @@
 <ul class="nav nav-sidebar">
   <li><a href="#">Vue d'ensemble</a></li>
-  {{#linkTo "parties.index" tagName="li"}}
-    <a {{bindAttr href="view.href"}}>Mes Parties</a>
-  {{/linkTo}}
-  {{#linkTo "ownedGames" tagName="li"}}
-    <a {{bindAttr href="view.href"}}>Mes Jeux</a>
-  {{/linkTo}}
+  {{#link-to "parties.index" tagName="li"}}
+    <a {{bind-attr href="view.href"}}>Mes Parties</a>
+  {{/link-to}}
   <li><a href="#">Export</a></li>
+</ul>
+<ul class="nav nav-sidebar">
+  {{#link-to "ownedGames" tagName="li"}}
+    <a {{bind-attr href="view.href"}}>Mes Jeux</a>
+  {{/link-to}}
+  {{#link-to "ownedGames.add" tagName="li"}}
+    <a {{bind-attr href="view.href"}}>Ajouter</a>
+  {{/link-to}}
 </ul>

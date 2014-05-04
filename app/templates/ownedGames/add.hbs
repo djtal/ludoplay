@@ -1,0 +1,18 @@
+<h1 class="page-header">
+  Ajouter des jeux a ma ludotheque
+</h1>
+{{#with controllers.games as games}}
+  {{view Ember.Select viewName="gameSelect"
+        contentBinding="games.content"
+        optionLabelPath="content.name"
+        optionValuePath="content.id"
+        selectionBinding="game"
+        prompt="Choisir un jeu"
+        class="form-control"}}
+{{/with}}
+<button class="btn btn-small btn-primary" {{action 'save'}}>
+  Enregistrer
+</button>
+<button class="btn btn-default" {{action 'cancel'}}>
+  Annuler
+</button>

@@ -1,4 +1,4 @@
-Ludoplay.OwnedGamesController = Ember.ArrayController.extend
+Ludoplay.OwnedGamesIndexController = Ember.ArrayController.extend
   needs: ['gamesStats'],
   # The options that appear in the select box
   sortOptions: [
